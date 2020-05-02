@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Covid19 Stats</title>
+    <link rel="stylesheet" href="./resources/css/style.css">
+</head>
+<body>
+    
+    <header>
+        <div class="logo">
+            <img src="./resources/img/logo.png" alt="">
+            <p>COVID19</br>STATS</p>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="">Home</a></li>
+                <li><a href="">About</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="stats">
+            <div class="latest-report">
+                <div class="country">
+                    <div class="name">
+                        Loading...
+                    </div>
+                    <div class="change-country">
+                        change
+                    </div>
+                    <div class="search-country hide">
+                        <div class="search-box">
+                            <input type="text" id="search-input" placeholder="Type country...">
+                            <img class="close" src="./resources/img/close.svg" alt="">
+                        </div>
+                        <div class="country-list">
+                            <ul id="list-0"></ul>
+                            <ul id="list-1"></ul>
+                            <ul id="list-2"></ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="total-cases">
+                    <div class="title">Total Cases</div>
+                    <div class="value">0</div>
+                    <div class="new-value">+0</div>
+                </div>
+                <div class="recovered">
+                    <div class="title">Recovered</div>
+                    <div class="value">0</div>
+                    <div class="new-value">+0</div>
+                </div>
+                <div class="deaths">
+                    <div class="title">Deaths</div>
+                    <div class="value">0</div>
+                    <div class="new-value">+0</div>
+                </div>
+            </div>
+            
+            <div class="chart">
+                <canvas id="line-chart"></canvas>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <div class="copyright">
+               <p>Copyright © 2020 Code Explained</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+    <script src="http://www.geoplugin.net/javascript.gp"></script>
+    <script src="./resources/js/countries.js"></script>
+    <script src="./resources/js/app.js"></script>
+</body>
+</html>
