@@ -205,58 +205,60 @@ let country_list = [
     { name: 'China', code: 'CN' }
 ];
 
-/* SELECT SEARCH COUNTRY ELMENTS */
-const searchCountryEl = document.querySelector(".search-country");
-const countryListEl = document.querySelector(".country-list");
-const changeCountry = document.querySelector(".change-country");
-const closeList = document.querySelector(".close");
-const input = document.getElementById("search-input");
+// SELECT SEARCH COUNTRY ELEMENTS
+const search_country_element = document.querySelector(".search-country");
+const country_list_element = document.querySelector(".country-list");
+const chang_country_btn = document.querySelector(".change-country");
+const close_list_btn = document.querySelector(".close");
+const input = document.getElementById('search-input')
 
-// CREATE THE LIST OF ALL COUNTRIES
-function createCountryList(countryListEl, country_list, num_of_ul_lists){
+// CREATE TE COUNTRY LIST
+function createCountryList(){
+    const num_countries = country_list.length;
 
-    const num_of_ountries = country_list.length;
+    let i = 0, ul_list_id;
 
-    let i = 0;
-    let ul_list_id;
     country_list.forEach( (country, index) => {
-
-        if( index % Math.ceil(num_of_ountries/num_of_ul_lists) == 0){
-            ul_list_id = `list-${i}`
-            countryListEl.innerHTML += `<ul id="${ul_list_id}"></ul>`;
+        if( index % Math.ceil(num_countries/num_of_ul_lists) == 0){
+            ul_list_id = `list-${i}`;
+            country_list_element.innerHTML += `<ul id='${ul_list_id}'></ul>`;
             i++;
         }
 
-        document.getElementById(`${ul_list_id}`).innerHTML += `<li onclick="fetchData('${country.name}')" id="${country.name}">
-                                                                ${country.name}
-                                                        </li>`
-    });
+        document.getElementById(`${ul_list_id}`).innerHTML += `
+            <li onclick="fetchData('${country.name}')" id="${country.name}">
+            ${country.name}
+            </li>
+        `;
+    })
 }
-let num_of_ul_lists = 3;
-createCountryList(countryListEl, country_list, num_of_ul_lists)
 
-// HIDE OR SHOW THE LIST
-changeCountry.addEventListener("click", function(){
+let num_of_ul_lists = 3;
+createCountryList();
+
+// SHOW/HIDE THE COUTRY LIST ON CLICK EVENT
+chang_country_btn.addEventListener("click", function(){
     input.value = "";
     resetCountryList();
-    toggleCountryList();
-    searchCountryEl.classList.add("fadeIn");
-});
-closeList.addEventListener("click", function(){
-    toggleCountryList();
+    search_country_element.classList.toggle("hide");
+    search_country_element.classList.add("fadeIn");
 });
 
-countryListEl.addEventListener("click", function(){
-    toggleCountryList();
+close_list_btn.addEventListener("click", function(){
+    search_country_element.classList.toggle("hide");
 });
 
-// "input" EVENT fires up, whenever the input value changes.
+country_list_element.addEventListener("click", function(){
+    search_country_element.classList.toggle("hide");
+});
+
+// COUNTRY FILTER
+/* input event fires up whenever the value of the input changes */
 input.addEventListener("input", function(){
-
     let value = input.value.toUpperCase();
-    
+
     country_list.forEach( country => {
-        if( country.name.toUpperCase().startsWith(value) ){
+        if( country.name.toUpperCase().startsWith(value)){
             document.getElementById(country.name).classList.remove("hide");
         }else{
             document.getElementById(country.name).classList.add("hide");
@@ -264,11 +266,7 @@ input.addEventListener("input", function(){
     })
 })
 
-// HELPERS
-function toggleCountryList(){
-    searchCountryEl.classList.toggle("hide");
-}
-
+// RESET COUNTRY LIST (SHOW ALL THE COUNTRIES )
 function resetCountryList(){
     country_list.forEach( country => {
         document.getElementById(country.name).classList.remove("hide");

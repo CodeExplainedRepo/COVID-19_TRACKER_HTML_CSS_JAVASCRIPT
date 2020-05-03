@@ -1,11 +1,15 @@
 /* ---------------------------------------------- */
+/*            CODE EXPLAINED TUTORIALS            */
+/*         www.youtube.com/CodeExplained          */
+/* ---------------------------------------------- */
+
+/* ---------------------------------------------- */
 /*                  LOAD FONTS                    */
 /* ---------------------------------------------- */
 @font-face{
     font-family: 'Gilroy';
-    src: url(./ressources/css/Gilroy-Regular.woff) format(woff);
+    src: url(./Gilroy-Regular.woff) format(woff);
 }
-
 /* ---------------------------------------------- */
 /*                    GENERAL                     */
 /* ---------------------------------------------- */
@@ -14,193 +18,207 @@
     margin: 0;
     box-sizing: border-box;
     font-family: 'Gilroy', sans-serif;
+}
+html{
     font-size: 16px;
 }
 .hide{
     display: none;
 }
-.fadeIn {
-    animation: animate 0.5s ease-in;
+.fadeIn{
+    animation: fade 0.5s ease-in-out;
 }
-@keyframes animate{
-    0% {
-        opacity : 0;
+@keyframes fade{
+    0%{
+        opacity: 0;
     }
-    100% {
+    100%{
         opacity: 1;
     }
 }
 /* ---------------------------------------------- */
-/*                     HEADER                     */
+/*                    HEADER                      */
 /* ---------------------------------------------- */
 header{
     display: flex;
     align-items: center;
+    justify-content: space-between;
 
-    width: 100%;
     max-width: 1200px;
+    width: 100%;
     height: 60px;
 
-    margin:0 auto;
+    margin: 0 auto;
 
-    background-color: #f3f2f2;
+    background-color: #F3F2F2;
 }
 /* -------- LOGO -------- */
 .logo{
     display: flex;
     align-items: center;
-    flex: 1;
     padding-left: 20px;
 }
 .logo img{
     width: 60px;
 }
-.logo p{
+.logo p {
     font-weight: bold;
     color: #6a149b;
 }
 /* -------- NAV -------- */
 nav{
-    flex: 1;
+    
 }
+
 nav ul{
     display: flex;
-    justify-content: flex-end;
     align-items: center;
-    padding: 0;
-    margin: 0;
 }
 nav ul li{
     list-style: none;
-    padding: 0;
-    margin: 0;
 }
 nav ul li:last-child{
     padding-right: 20px;
 }
-a{
+nav ul li a {
     text-decoration: none;
     color: #6a149b;
     padding: 10px;
 }
-
 /* ---------------------------------------------- */
 /*                      MAIN                      */
 /* ---------------------------------------------- */
 main{
     max-width: 1200px;
-    margin: auto;
+    margin: 0 auto;
 }
-
 /* -------- BG IMAGE -------- */
 .stats{
     width: 100%;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)) ,url("../img/bg.jpg");
+    background-image: linear-gradient(rgba(0,0,0,0.9), rgba(0,0,0,0.9)) ,url('../img/bg.jpg');
     background-size: cover;
 }
-
 /* -------- LATEST REPORT -------- */
 .latest-report{
-    width: 80%;
-    margin: 0 auto;
-    padding-top: 50px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    width: 80%;
+    margin: 0 auto;
+    padding-top: 50px;
+
+    color: #FFF;
 }
-.country, .total-cases, .recovered, .deaths{
+
+.country,
+.total-cases,
+.recovered,
+.deaths{
     height: 100px;
 }
-.change-country{
-    color: white;
-    cursor: pointer;
-}
+
 .name{
     font-size: 2.2em;
     color: #be64f1;
     font-weight: bold;
 }
+
+.change-country{
+    cursor: pointer;
+}
+
 .title{
     font-size: 1.3em;
-    color: #FFF
 }
 .total-cases .value{
-    color: white;
     font-size: 2em;
     font-weight: bold;
 }
 .recovered .value{
-    color: #009688;
     font-size: 2em;
     font-weight: bold;
+    color: #009688;
 }
 .deaths .value{
-    color: #f44336;
     font-size: 2em;
     font-weight: bold;
+    color: #f44336;
 }
 .new-value{
-    color: white;
     font-size: 1.3em;
 }
-
 /* -------- CHART -------- */
 .chart{
     width: 80%;
     height: 70vh;
     min-height: 500px;
+
     margin: 0 auto;
     padding: 50px 0;
-    flex: 1;
 }
-
 /* -------- SEARCH COUNTRY -------- */
 .search-country{
     position: relative;
-    top : 10px;
+    top: 10px;
 }
 .search-box{
     position: absolute;
+    
     display: flex;
     align-items: center;
     justify-content: space-between;
+
     width: 400px;
     height: 30px;
-    z-index: 1;
+
     background-color: #111;
+
+    z-index: 1;
 }
 .search-box input{
     width: 360px;
     height: 25px;
-    background-color: transparent;
-    color : #FFF;
+
     border: none;
+
+    background-color: transparent;
+    color: #FFF;
+
     padding-left: 15px;
+
+    font-size: 1.1em;
 }
 .search-box img{
     width: 20px;
-    margin-right: 5px;
+    padding-right: 5px;
     cursor: pointer;
 }
+
 .country-list{
     display: flex;
+
+    position: absolute;
+    top: 30px;
+
     width: 400px;
     height: 300px;
-    background-color: #111;
-    opacity: 0.95;
-    position: absolute;
-    top:30px;
-    overflow-y: scroll;
 
+    background-color: #111;
+    opacity: 0.9;
+
+    overflow-y: scroll;
 }
+
 .country-list ul{
     width: 100%;
 }
+
 .country-list ul li{
     list-style: none;
     cursor: pointer;
     padding: 10px;
-    color: #FFF
+    color: #FFF;
 }
 .country-list ul li:hover{
     border-left: 1px solid #FFF;
@@ -208,40 +226,49 @@ main{
 /* SCROLL BAR */
 .country-list::-webkit-scrollbar {
     width: 10px;
-}
-.country-list::-webkit-scrollbar-track {
+  }
+  
+  /* Track */
+  .country-list::-webkit-scrollbar-track {
     background: #111;
-}
-.country-list::-webkit-scrollbar-thumb {
+  }
+  
+  /* Handle */
+  .country-list::-webkit-scrollbar-thumb {
     background: #F1F1F1;
-}
-.country-list::-webkit-scrollbar-thumb:hover {
-    background: #FFFFFF;
-}
+  }
+  
+  /* Handle on hover */
+  .country-list::-webkit-scrollbar-thumb:hover {
+    background: #FFF;
+  }
 /* ---------------------------------------------- */
 /*                    FOOTER                      */
 /* ---------------------------------------------- */
 footer{
     max-width: 1200px;
     height: 60px;
-    margin: auto;
+
+    margin: 0 auto;
     background-color: #6a149b;
 }
+
 .footer-container{
     height: 100%;
     display: flex;
     justify-content: center;
 }
+
 .copyright{
     height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
+
 .copyright p{
     color: #FFF;
 }
-
 /* ---------------------------------------------- */
 /*             SCREEN WIDTH < 600px               */
 /* ---------------------------------------------- */
@@ -249,7 +276,6 @@ footer{
     .latest-report{
         display: flex;
         flex-direction: column;
-        justify-content: flex-start;
         align-items: flex-start;
     }
 }
