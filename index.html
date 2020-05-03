@@ -1,22 +1,23 @@
+<!-- CODE EXPLAINED TUTORIALS -->
+<!-- youtube.com/CodeExplained -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Covid19 Stats</title>
     <link rel="stylesheet" href="./resources/css/style.css">
+    <title>COVID-19 STATS - JAVASCRIPT</title>
 </head>
 <body>
-    
     <header>
         <div class="logo">
             <img src="./resources/img/logo.png" alt="">
-            <p>COVID19</br>STATS</p>
+            <p>COVID-19<br/>STATS</p>
         </div>
         <nav>
             <ul>
-                <li><a href="">Home</a></li>
-                <li><a href="">About</a></li>
+                <li><a href="#">HOME</a></li>
+                <li><a href="#">ABOUT</a></li>
             </ul>
         </nav>
     </header>
@@ -25,21 +26,15 @@
         <div class="stats">
             <div class="latest-report">
                 <div class="country">
-                    <div class="name">
-                        Loading...
-                    </div>
-                    <div class="change-country">
-                        change
-                    </div>
+                    <div class="name">Loading...</div>
+                    <div class="change-country">change</div>
                     <div class="search-country hide">
                         <div class="search-box">
-                            <input type="text" id="search-input" placeholder="Type country...">
+                            <input type="text" id="search-input" placeholder="Search Country...">
                             <img class="close" src="./resources/img/close.svg" alt="">
                         </div>
                         <div class="country-list">
-                            <ul id="list-0"></ul>
-                            <ul id="list-1"></ul>
-                            <ul id="list-2"></ul>
+                            
                         </div>
                     </div>
                 </div>
@@ -59,9 +54,8 @@
                     <div class="new-value">+0</div>
                 </div>
             </div>
-            
             <div class="chart">
-                <canvas id="line-chart"></canvas>
+                <canvas id="axes_line_chart"></canvas>
             </div>
         </div>
     </main>
@@ -69,14 +63,14 @@
     <footer>
         <div class="footer-container">
             <div class="copyright">
-               <p>Copyright © 2020 Code Explained</p>
+                <p>Copyright © 2020 Code Explained</p>
             </div>
         </div>
     </footer>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
-    <script src="http://www.geoplugin.net/javascript.gp"></script>
-    <script src="./resources/js/countries.js"></script>
-    <script src="./resources/js/app.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js" integrity="sha256-R4pqcOYV8lt7snxMQO/HSbVCFRPMdrhAFMH+vr9giYI=" crossorigin="anonymous"></script>
+    <script language="JavaScript" src="http://www.geoplugin.net/javascript.gp" type="text/javascript"></script>
+    <script src="resources/js/countries.js"></script>
+    <script src="resources/js/app.js"></script>
 </body>
 </html>
