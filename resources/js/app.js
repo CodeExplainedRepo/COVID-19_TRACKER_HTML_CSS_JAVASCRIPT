@@ -23,13 +23,20 @@ let app_data = [],
   formatedDates = [];
 
 // GET USERS COUNTRY CODE
-let country_code = geoplugin_countryCode();
-let user_country;
-country_list.forEach((country) => {
-  if (country.code == country_code) {
-    user_country = country.name;
-  }
-});
+fetch("https://api.ipgeolocation.io/ipgeo?apiKey=14c7928d2aef416287e034ee91cd360d")
+  .then((res) => {
+    return res.json();
+  })
+  .then((data) => {
+    let country_code = data.country_code2;
+    let user_country;
+    country_list.forEach((country) => {
+      if (country.code == country_code) {
+        user_country = country.name;
+      }
+    });
+    fetchData(user_country);
+  });
 
 /* ---------------------------------------------- */
 /*                     FETCH API                  */
@@ -51,9 +58,7 @@ function fetchData(country) {
 
   const api_fetch = async (country) => {
     await fetch(
-      "https://api.covid19api.com/total/country/" +
-        country +
-        "/status/confirmed",
+      "https://api.covid19api.com/total/country/" + country + "/status/confirmed",
       requestOptions
     )
       .then((res) => {
@@ -67,9 +72,7 @@ function fetchData(country) {
       });
 
     await fetch(
-      "https://api.covid19api.com/total/country/" +
-        country +
-        "/status/recovered",
+      "https://api.covid19api.com/total/country/" + country + "/status/recovered",
       requestOptions
     )
       .then((res) => {
@@ -100,8 +103,6 @@ function fetchData(country) {
   api_fetch(country);
 }
 
-fetchData(user_country);
-
 // UPDATE UI FUNCTION
 function updateUI() {
   updateStats();
@@ -113,8 +114,7 @@ function updateStats() {
   const new_confirmed_cases = total_cases - cases_list[cases_list.length - 2];
 
   const total_recovered = recovered_list[recovered_list.length - 1];
-  const new_recovered_cases =
-    total_recovered - recovered_list[recovered_list.length - 2];
+  const new_recovered_cases = total_recovered - recovered_list[recovered_list.length - 2];
 
   const total_deaths = deaths_list[deaths_list.length - 1];
   const new_deaths_cases = total_deaths - deaths_list[deaths_list.length - 2];
