@@ -186,6 +186,7 @@ const monthsNames = [
   "Apr",
   "May",
   "Jun",
+  "Jul",
   "Aug",
   "Sep",
   "Oct",
@@ -196,5 +197,5 @@ const monthsNames = [
 function formatDate(dateString) {
   let date = new Date(dateString);
 
-  return `${date.getDate()} ${monthsNames[date.getMonth() - 1]}`;
+  return `${date.getDate()} ${monthsNames[date.getMonth()]}`;
 }
